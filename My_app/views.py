@@ -5,6 +5,7 @@ from .models import *
 # Create your views here.
 from django.shortcuts import render
 
+# Registration view
 def regform(request):
     if request.method == "POST":
         id_no = request.POST.get("idno")
@@ -28,7 +29,7 @@ def regform(request):
     data=Student.objects.all()
     return render(request, "regform.html",{'data':data})
 
-
+# delete view
 def delete(request,id):
     data=Student.objects.all()
     if request.method=="GET":
@@ -38,7 +39,7 @@ def delete(request,id):
 
     return render(request, "regform.html",{'data':data})
 
-
+# Update view
 def edit(request, id):
     student =Student.objects.get(pk=id)
     if request.method == "POST":
